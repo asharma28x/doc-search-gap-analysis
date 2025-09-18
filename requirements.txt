@@ -1,0 +1,9 @@
+ollama
+faiss-cpu
+numpy
+pypdf
+langchain-text-splitters
+langchain-huggingface
+gradio
+streamlit
+sentence_transformers

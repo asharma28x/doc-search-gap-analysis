@@ -1,2 +1,28 @@
 # doc-search-gap-analysis
-A document comparison Agentic AI that takes a regulatory doc and compares it to the internal docs to check for any discrepencies
+A document comparison Agentic AI that takes a regulatory doc and compares it to the internal docs to check for any discrepencies, you will need to download Ollama by using the following commands:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+
+ollama serve &
+
+ollama pull gemma3:1b
+```
+Every time you run the app, make sure to run only 
+```bash
+ollama serve &
+
+ollama pull gemma3:1b
+```
+commands to start the Ollama server. You will only need to do ```ollama pull gemma3:1b``` command once
+
+After you have Ollama installed, you can run the following command to install the required Python packages:
+```bash
+pip install -r requirements.txt
+```
+
+Finally, you can run the system using the following command:
+
+```bash
+python main.py
+```
