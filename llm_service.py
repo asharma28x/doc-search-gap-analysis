@@ -6,4 +6,4 @@ def ollama_chat(prompt):
         messages=[{'role': 'user', 'content': prompt}]
     )
 
-    return response
+    return response['message']['content']

@@ -6,3 +6,4 @@ langchain-text-splitters
 langchain-huggingface
 gradio
 streamlit
+sentence_transformers
