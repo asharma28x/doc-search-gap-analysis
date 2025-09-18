@@ -1,4 +1,13 @@
 # doc-search-gap-analysis
+
+To create a new branch in github, use the command:
+
+```bash
+git checkout -b <Branch-Name>
+```
+
+where ```<Branch-Name>``` should be the name of the feature you're coding up and adding to the repo. Commit and publish the branch using the VSCode sidebar after. 
+
 A document comparison Agentic AI that takes a regulatory doc and compares it to the internal docs to check for any discrepencies, you will need to download Ollama by using the following commands:
 
 ```bash
