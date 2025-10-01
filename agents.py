@@ -1,4 +1,4 @@
-from llm_service import ollama_chat
+from llm_service import llm_chat
 from pypdf import PdfReader
 import numpy as np
 
@@ -38,7 +38,7 @@ class RegulationAnalystAgent:
         {regulation_text}
         ---
         """
-        response = ollama_chat(prompt)
+        response = llm_chat(prompt)
         print("Mandates extracted.")
         return response
 
@@ -92,7 +92,7 @@ class InternalPolicyAuditorAgent:
             **Confidence Score:** [e.g., 0.95]
             """
             
-            analysis_result = ollama_chat(prompt)
+            analysis_result = llm_chat(prompt)
             # Combine the mandate with its analysis for the final report
             full_finding = f"**Mandate:** {mandate_title}\n{analysis_result}"
             findings.append(full_finding)
@@ -130,6 +130,6 @@ class ComplianceReportAgent:
         {gap_analysis_results}
         ---
         """
-        final_report = ollama_chat(prompt)
+        final_report = llm_chat(prompt)
         print("Compliance report generated.")
         return final_report

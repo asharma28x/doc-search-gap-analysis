@@ -2,8 +2,10 @@ ollama
 faiss-cpu
 numpy
 pypdf
+langchain
 langchain-text-splitters
 langchain-huggingface
 gradio
 streamlit
 sentence_transformers
+requests
