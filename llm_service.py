@@ -1,9 +1,14 @@
-import ollama
+# Use custom LLM API from LLM.py
+from LLM import MyCustomLLM
+from auth import authenticate
+from ntt_secrets import NTT_ID
 
-def ollama_chat(prompt):
-    response = ollama.chat(
-        model='gemma3:1b',
-        messages=[{'role': 'user', 'content': prompt}]
+def llm_chat(prompt):
+    token = authenticate()
+    llm = MyCustomLLM(
+        api_url='https://api.ntth.ai/v1/chat',
+        token=token,
+        model_id="cc5bab32-9ccf-472b-9d76-91fc2ec5b047",
+        ID=NTT_ID
     )
-
-    return response['message']['content']
+    return llm._call(prompt)
