@@ -1,0 +1,1446 @@
+[
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-4o",
+        "version": "2024-05-13",
+        "deploymentName": "gpt-4o",
+        "createdAt": "2024-06-03T15:05:38.994Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "keyName": "nttai-prod-default-oai",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "classification": "omni",
+        "providerPriority": 4,
+        "priority": 4,
+        "id": "cc5bab32-9ccf-472b-9d76-91fc2ec5b047"
+    },
+    {
+        "provider": "groq",
+        "type": "llama",
+        "name": "Llama 3.3 70B Versatile",
+        "version": "3.3",
+        "deploymentName": "llama-3.3-70b-versatile",
+        "createdAt": "2024-06-14T23:21:50.514Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "keyName": "groq",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "classification": "text",
+        "providerPriority": 10,
+        "priority": 6,
+        "id": "b4c62f5a-4daf-4bc5-a3b6-f5e6527abb05"
+    },
+    {
+        "provider": "groq",
+        "type": "mistral",
+        "name": "mistral-saba-24b",
+        "version": "preview",
+        "deploymentName": "mistral-saba-24b",
+        "createdAt": "2024-06-14T23:21:50.514Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "keyName": "groq",
+        "capabilities": [
+            "text"
+        ],
+        "classification": "text",
+        "providerPriority": 4,
+        "priority": 1,
+        "id": "953f0e99-8e16-4c44-9a32-e34a3e58ba93"
+    },
+    {
+        "provider": "groq",
+        "type": "google-gemma",
+        "name": "gemma2-9b-it",
+        "version": "2",
+        "deploymentName": "gemma2-9b-it",
+        "createdAt": "2024-06-14T23:21:50.514Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "keyName": "groq",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "classification": "text",
+        "providerPriority": 6,
+        "priority": 2,
+        "id": "85e7b741-8d89-44d9-a806-789473996613"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 3.5 Sonnet",
+        "version": "20240620-v1:0",
+        "deploymentName": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "classification": "omni",
+        "providerPriority": 10,
+        "priority": 4,
+        "id": "b60dba70-f809-4121-882f-36a5fd81db1d"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 3 Sonnet",
+        "version": "20240229-v1:0",
+        "deploymentName": "anthropic.claude-3-sonnet-20240229-v1:0",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "classification": "omni",
+        "providerPriority": 13,
+        "priority": 6,
+        "id": "a4b48267-cf2e-4b9b-bd76-7f72058acf01"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 3 Haiku",
+        "version": "20240307-v1:0",
+        "deploymentName": "anthropic.claude-3-haiku-20240307-v1:0",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text"
+        ],
+        "classification": "text",
+        "providerPriority": 14,
+        "priority": 7,
+        "id": "b12c36aa-6667-4299-ade4-ab62f8ac1d5f"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 2.1",
+        "version": "v2:1",
+        "deploymentName": "anthropic.claude-v2:1",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text"
+        ],
+        "classification": "text",
+        "providerPriority": 15,
+        "priority": 8,
+        "id": "1b5544d5-cf41-4712-8121-bd9af5219b11"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 2",
+        "version": "v2",
+        "deploymentName": "anthropic.claude-v2",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text"
+        ],
+        "classification": "text",
+        "providerPriority": 16,
+        "priority": 9,
+        "id": "bbedd1ff-4bdb-4723-bc83-8ad663acab01"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 1 Instant",
+        "version": "v1",
+        "deploymentName": "anthropic.claude-instant-v1",
+        "createdAt": "2024-06-29T23:31:55.947Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "keyName": "aws",
+        "capabilities": [
+            "text"
+        ],
+        "classification": "text",
+        "providerPriority": 17,
+        "priority": 10,
+        "id": "455702b2-4ed3-4e1a-bcb5-8db6d3977b00"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-4o Mini",
+        "version": "2024-07-18",
+        "deploymentName": "gpt-4o-mini",
+        "createdAt": "2024-08-21T19:46:28.808Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "keyName": "ai-eastus-openai-studio1",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "classification": "omni",
+        "providerPriority": 10,
+        "priority": 9,
+        "id": "c7e6b665-2747-4b80-895d-05413d17d6ab"
+    },
+    {
+        "priority": 0,
+        "provider": "azure",
+        "type": "openai",
+        "name": "Dalle 3",
+        "version": "3.0",
+        "deploymentName": "Dalle3",
+        "createdAt": "2024-08-27T16:45:09.569Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "keyName": "ai-eastus-openai-studio1",
+        "capabilities": [
+            "image-generation"
+        ],
+        "classification": "image-generation",
+        "providerPriority": 12,
+        "id": "51ae3a72-d8ea-4944-aa17-f996992f3559"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "o1",
+        "version": "2024-12-17",
+        "deploymentName": "o1",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "openai",
+        "createdAt": "2024-09-23T16:46:44.286Z",
+        "updatedAt": "2025-08-08T17:46:13.390Z",
+        "providerPriority": 12,
+        "priority": 2,
+        "id": "54338042-d83e-4e30-abee-83ea72ada971"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "o1-mini",
+        "version": "2024-09-12",
+        "deploymentName": "o1-mini",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "openai",
+        "createdAt": "2024-09-23T16:48:33.489Z",
+        "updatedAt": "2025-08-08T17:46:13.390Z",
+        "providerPriority": 13,
+        "priority": 3,
+        "id": "0c3c5f7d-0f3e-459a-a4c2-957318c5e425"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-4o",
+        "version": "2024-05-13",
+        "deploymentName": "gpt-4o",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "workspace",
+            "tools",
+            "docuflow"
+        ],
+        "keyName": "openai",
+        "createdAt": "2024-09-23T16:49:33.709Z",
+        "updatedAt": "2025-08-15T23:09:56.396Z",
+        "providerPriority": 4,
+        "priority": 4,
+        "id": "6c26a584-a988-4fed-92ea-f6501429fab9"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-4o Mini",
+        "version": "2024-07-18",
+        "deploymentName": "gpt-4o-mini",
+        "classification": "omni",
+        "capabilities": [
+            "vision",
+            "text",
+            "workspace",
+            "tools"
+        ],
+        "keyName": "openai",
+        "createdAt": "2024-09-23T16:50:16.677Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "providerPriority": 10,
+        "priority": 10,
+        "id": "08453a5f-513d-425b-a8df-13e104b0e3d3"
+    },
+    {
+        "provider": "perplexity",
+        "type": "perplexity",
+        "name": "Sonar Pro",
+        "version": "1.0",
+        "deploymentName": "sonar-pro",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "keyName": "perplexity",
+        "createdAt": "2024-10-01T16:05:32.292Z",
+        "updatedAt": "2025-06-09T06:59:05.651Z",
+        "providerPriority": 2,
+        "priority": 2,
+        "id": "120abc21-371c-4e06-ad61-8d7b50f5fb53"
+    },
+    {
+        "provider": "perplexity",
+        "type": "perplexity",
+        "name": "Sonar",
+        "version": "1.0",
+        "deploymentName": "sonar",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "keyName": "perplexity",
+        "createdAt": "2024-10-01T16:08:21.519Z",
+        "updatedAt": "2025-06-09T06:59:05.651Z",
+        "providerPriority": 1,
+        "priority": 1,
+        "id": "1b4fa8de-9291-4bb7-94bb-8b219f82c841"
+    },
+    {
+        "provider": "azure",
+        "type": "maas",
+        "name": "tsuzumi-7b",
+        "version": "1",
+        "deploymentName": "tsuzumi-7b-pg",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "keyName": "maas-tsuzumi",
+        "createdAt": "2024-10-03T18:34:44.921Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 11,
+        "priority": 2,
+        "id": "cbad9dac-f1fc-47ff-932b-8e074f3de9e0"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Nova Pro",
+        "version": "1.0",
+        "deploymentName": "amazon.nova-pro-v1:0",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:18:52.749Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 4,
+        "priority": 1,
+        "id": "b65c4576-3701-4988-92b2-966510767c5b"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Nova Lite",
+        "version": "1.0",
+        "deploymentName": "amazon.nova-lite-v1:0",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:19:24.298Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 7,
+        "priority": 2,
+        "id": "290a1a95-d5a7-4af9-9d4e-43e80a754797"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Nova Micro",
+        "version": "1.0",
+        "deploymentName": "amazon.nova-micro-v1:0",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:19:56.343Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 8,
+        "priority": 2,
+        "id": "79dc034d-9ad2-4ed6-b7ee-c0d1fae57b70"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Cohere - Command R",
+        "version": "1.0",
+        "deploymentName": "cohere.command-r-v1:0",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:20:28.902Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 6,
+        "priority": 5,
+        "id": "6879e55a-02f6-4685-b70a-d3f68bb83945"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Cohere - Command R+",
+        "version": "1.0",
+        "deploymentName": "cohere.command-r-plus-v1:0",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:21:01.486Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 11,
+        "priority": 3,
+        "id": "434ee530-bf53-468a-8a07-288121db2802"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Titan Image",
+        "version": "2.0",
+        "deploymentName": "amazon.titan-image-generator-v2:0",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:21:37.053Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 9,
+        "priority": 2,
+        "id": "7c3fffa0-5652-4720-bc29-f580d1c190b3"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Nova Canvas",
+        "version": "1.0",
+        "deploymentName": "amazon.nova-canvas-v1:0",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "keyName": "aws",
+        "createdAt": "2024-12-19T14:22:10.918Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 5,
+        "priority": 1,
+        "id": "1483765c-7701-436a-84ff-69db359eb821"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "o3-mini",
+        "version": "2025-01-31",
+        "deploymentName": "o3-mini",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-01-31T21:10:51.439Z",
+        "updatedAt": "2025-08-08T17:46:13.390Z",
+        "providerPriority": 9,
+        "priority": 1,
+        "id": "84daa7ff-b4bd-4f32-b29b-4305c4b7bd85"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-4.1",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "workspace",
+            "tools",
+            "docuflow"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-02-27T20:33:32.110Z",
+        "updatedAt": "2025-08-15T23:09:46.767Z",
+        "providerPriority": 1,
+        "priority": 1,
+        "id": "35dc48ac-de1a-44a8-b4c7-4f8e899c408c"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude 3.7 Sonnet",
+        "version": "20250219-v1:0",
+        "deploymentName": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "keyName": "aws",
+        "createdAt": "2025-02-28T01:40:16.811Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "providerPriority": 3,
+        "priority": 1,
+        "id": "e6eed6c0-0a99-4009-8caa-2613fa12ad7e"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "o3-mini",
+        "version": "2025-01-31",
+        "deploymentName": "o3-mini",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-03-04T22:19:29.979Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 9,
+        "priority": 1,
+        "id": "acfb0830-06cd-4861-8a62-d355713da326"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "o1",
+        "version": "2024-12-17",
+        "deploymentName": "o1",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-03-04T22:20:20.982Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 14,
+        "priority": 3,
+        "id": "77b18956-0875-4a8d-8719-5a54e2c67066"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "o1-mini",
+        "version": "2024-09-12",
+        "deploymentName": "o1-mini",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "reasoning"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-03-04T22:21:06.428Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 15,
+        "priority": 4,
+        "id": "331cd33f-a758-4a14-a5cf-48d8a2d7396c"
+    },
+    {
+        "provider": "groq",
+        "type": "Alibaba",
+        "name": "qwen-2.5-coder-32b",
+        "version": "2.5",
+        "deploymentName": "qwen-2.5-coder-32b",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "keyName": "groq",
+        "createdAt": "2025-03-10T15:52:09.292Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "providerPriority": 9,
+        "priority": 5,
+        "id": "46dc65b9-7844-4a12-bd27-10074507c0bb"
+    },
+    {
+        "provider": "groq",
+        "type": "Alibaba",
+        "name": "qwen-2.5-32b",
+        "version": "2.5",
+        "deploymentName": "qwen-2.5-32b",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "keyName": "groq",
+        "createdAt": "2025-03-10T15:52:37.990Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "providerPriority": 7,
+        "priority": 3,
+        "id": "dbb567f9-390a-46f7-ba0b-2e1160b42289"
+    },
+    {
+        "provider": "groq",
+        "type": "Alibaba",
+        "name": "qwen-qwq-32b",
+        "version": "qwq",
+        "deploymentName": "qwen-qwq-32b",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "keyName": "groq",
+        "createdAt": "2025-03-10T15:56:46.378Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "providerPriority": 8,
+        "priority": 4,
+        "id": "36b83770-26b7-4dd1-bf36-c1b54608bf02"
+    },
+    {
+        "provider": "groq",
+        "type": "llama",
+        "name": "llama-4-scout-17b",
+        "version": "4",
+        "deploymentName": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "groq",
+        "createdAt": "2025-04-06T03:44:39.822Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "providerPriority": 5,
+        "priority": 2,
+        "id": "fcfa1bc2-b90b-4938-b68c-eb185ea75cd6"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-4.1 Mini",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1-mini",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "workspace",
+            "tools"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-04-15T14:58:55.303Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "providerPriority": 7,
+        "priority": 7,
+        "id": "cea8e909-4e94-401b-8046-66f36abb156a"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-4.1 Nano",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1-nano",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "workspace",
+            "tools"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-04-15T14:59:36.384Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "providerPriority": 8,
+        "priority": 9,
+        "id": "10354f5a-e6af-46eb-a73e-5ea828c33acc"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-4.1",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-04-15T15:00:25.179Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 1,
+        "priority": 1,
+        "id": "e766d6cc-0aa3-487b-8090-17363fa4d17c"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-4.1 Nano",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1-nano",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-04-15T16:38:47.045Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 8,
+        "priority": 8,
+        "id": "1092c5e0-3f51-4ff6-9dd1-1a575a458dea"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-4.1 Mini",
+        "version": "2025-04-14",
+        "deploymentName": "gpt-4.1-mini",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-04-16T15:40:17.434Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 7,
+        "priority": 7,
+        "id": "acd9720f-c39e-433f-aea9-c4bd86fb3a42"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "o3",
+        "version": "2025-04-16",
+        "deploymentName": "o3",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-04-16T18:37:54.736Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "providerPriority": 11,
+        "priority": 8,
+        "id": "c9869375-2c62-486b-b3dc-aa8d2a99b0db"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "o4-mini",
+        "version": "2025-04-16",
+        "deploymentName": "o4-mini",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "openai",
+        "createdAt": "2025-04-16T18:39:18.747Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "providerPriority": 6,
+        "priority": 6,
+        "id": "4b49ba72-4421-46b3-9030-09d47c276f9e"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "o3",
+        "version": "2025-04-16",
+        "deploymentName": "o3",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-04-17T15:56:52.938Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 13,
+        "priority": 10,
+        "id": "d00bf216-dc65-4cf7-aa85-c7446ddee759"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "o4-mini",
+        "version": "2025-04-16",
+        "deploymentName": "o4-mini",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-04-17T15:57:35.498Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "providerPriority": 6,
+        "priority": 6,
+        "id": "7b1f2b09-7d11-475e-8967-8e2f0c6bde59"
+    },
+    {
+        "provider": "groq",
+        "type": "llama",
+        "name": "llama-4-maverick-17b",
+        "version": "4",
+        "deploymentName": "meta-llama/llama-4-maverick-17b-128e-instruct",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "keyName": "groq",
+        "createdAt": "2025-04-17T19:15:55.804Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "providerPriority": 1,
+        "priority": 1,
+        "id": "9c9c8025-5a38-4b69-8b31-7608d17d2c29"
+    },
+    {
+        "priority": 0,
+        "provider": "stability",
+        "type": "stability",
+        "name": "Stable Image Ultra",
+        "version": "3.5",
+        "deploymentName": "Stable-Image-Ultra",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "keyName": "maas-stable-diffusion-ultra",
+        "createdAt": "2025-04-17T23:51:53.427Z",
+        "updatedAt": "2025-06-09T06:59:10.981Z",
+        "providerPriority": 0,
+        "id": "70a1776d-7cc3-4744-ab06-d1769aa2cdc0"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude Sonnet 4",
+        "version": "20250514-v1:0",
+        "deploymentName": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "classification": "omni",
+        "capabilities": [
+            "vision",
+            "text",
+            "tools"
+        ],
+        "providerPriority": 1,
+        "priority": 0,
+        "keyName": "aws",
+        "createdAt": "2025-06-10T14:07:02.843Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "id": "2d5b82b8-750c-4f8a-8678-7c4bd350affd"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude Opus 4",
+        "version": "20250514-v1:0",
+        "deploymentName": "us.anthropic.claude-opus-4-20250514-v1:0",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "providerPriority": 12,
+        "priority": 0,
+        "keyName": "aws",
+        "createdAt": "2025-06-10T14:07:52.002Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "id": "cef95efc-4fe7-4f79-ac47-93cd55ea9211"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 2.0 Flash",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-2.0-flash",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 9,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:11:13.445Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "a22cabe4-87b7-4c20-afbf-213c01efee8e"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 2.0 Flash-Lite",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-2.0-flash-lite",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 10,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:11:58.429Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "b653930d-a96f-4b85-a5d5-5630ef237a5e"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 1.5 Flash",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-1.5-flash",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 11,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:12:47.013Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "7bd1e3af-936e-41c4-9774-c245f061e06d"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 1.5 Flash-8B",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-1.5-flash-8b",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 12,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:14:06.420Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "54f599dd-49dc-4e81-a656-4f511a0889e7"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 1.5 Pro",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-1.5-pro",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 13,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:14:50.330Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "b9a81ed8-567b-47fc-bc12-6f0fb7528558"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Imagen 3",
+        "version": "v1beta",
+        "deploymentName": "imagen-3.0-generate-002",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "providerPriority": 8,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-18T16:19:30.541Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "99a0b97d-53ae-48d4-b0d0-61def7980cf0"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 2.5 Pro",
+        "version": "v1beta",
+        "deploymentName": "gemini-2.5-pro",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision",
+            "reasoning"
+        ],
+        "providerPriority": 1,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-20T14:47:27.045Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "39a6f8ac-e6b3-4ab1-835a-f444ed944a5e"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 2.5 Flash",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-2.5-flash",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision",
+            "reasoning"
+        ],
+        "providerPriority": 2,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-06-20T15:06:16.510Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "a4022a51-2f02-4ba7-8a31-d33c7456b58e"
+    },
+    {
+        "provider": "groq",
+        "type": "openai",
+        "name": "GPT-OSS-120b",
+        "version": "1",
+        "deploymentName": "openai/gpt-oss-120b",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "reasoning",
+            "tools"
+        ],
+        "providerPriority": 2,
+        "priority": 0,
+        "keyName": "groq",
+        "createdAt": "2025-08-05T18:20:51.605Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "id": "f61d823a-744a-40c9-ac06-3b4b86d4242d"
+    },
+    {
+        "provider": "groq",
+        "type": "openai",
+        "name": "GPT-OSS-20b",
+        "version": "1",
+        "deploymentName": "openai/gpt-oss-20b",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 3,
+        "priority": 0,
+        "keyName": "groq",
+        "createdAt": "2025-08-05T18:21:19.811Z",
+        "updatedAt": "2025-08-05T18:21:29.254Z",
+        "id": "798cc62a-5b88-4893-8a5f-402c1e97a7f1"
+    },
+    {
+        "provider": "aws",
+        "type": "foundation",
+        "name": "Claude Opus 4.1",
+        "version": "20250805-v1:0",
+        "deploymentName": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools"
+        ],
+        "providerPriority": 2,
+        "priority": 0,
+        "keyName": "aws",
+        "createdAt": "2025-08-05T19:49:21.500Z",
+        "updatedAt": "2025-08-05T19:49:39.333Z",
+        "id": "a0d1a4cb-b22d-4344-9b35-7f1791ef579e"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-5",
+        "version": "1",
+        "deploymentName": "gpt-5",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning",
+            "docuflow"
+        ],
+        "providerPriority": 2,
+        "priority": 2,
+        "keyName": "openai",
+        "createdAt": "2025-08-08T17:37:00.182Z",
+        "updatedAt": "2025-09-09T21:26:10.086Z",
+        "id": "26b6ad50-335d-4804-af6a-17a6ccbb46e2"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-5 Mini",
+        "version": "1",
+        "deploymentName": "gpt-5-mini",
+        "classification": "omni",
+        "capabilities": [
+            "vision",
+            "tools",
+            "text",
+            "reasoning"
+        ],
+        "providerPriority": 3,
+        "priority": 3,
+        "keyName": "openai",
+        "createdAt": "2025-08-08T17:38:03.087Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "id": "26fc458f-a921-4e01-b939-c7a1693ee044"
+    },
+    {
+        "provider": "openai",
+        "type": "openai",
+        "name": "GPT-5 Nano",
+        "version": "1",
+        "deploymentName": "gpt-5-nano",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 5,
+        "priority": 5,
+        "keyName": "openai",
+        "createdAt": "2025-08-08T17:38:49.504Z",
+        "updatedAt": "2025-08-08T17:46:17.151Z",
+        "id": "a37bb798-573c-4cd2-bc59-a23c2d8e4127"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-5",
+        "version": "1",
+        "deploymentName": "gpt-5",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 2,
+        "priority": 2,
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-08-08T17:39:53.346Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "id": "04513890-c065-40cb-b254-e983186aac7b"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-5 Mini",
+        "version": "1",
+        "deploymentName": "gpt-5-mini",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 3,
+        "priority": 3,
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-08-08T17:40:29.303Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "id": "ad945260-de17-467b-bbb9-c57097635521"
+    },
+    {
+        "provider": "azure",
+        "type": "openai",
+        "name": "GPT-5 Nano",
+        "version": "1",
+        "deploymentName": "gpt-5-nano",
+        "classification": "omni",
+        "capabilities": [
+            "text",
+            "vision",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 5,
+        "priority": 5,
+        "keyName": "nttai-prod-default-oai",
+        "createdAt": "2025-08-08T17:41:05.498Z",
+        "updatedAt": "2025-08-08T17:46:07.173Z",
+        "id": "df31c6d1-9ec0-4593-9fd5-063608858c6b"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Mistral Large",
+        "version": "1",
+        "deploymentName": "mistral-large-latest",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "providerPriority": 1,
+        "priority": 1,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:49:29.254Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "7bca0d1d-217f-458e-9828-1b221816fccf"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Mistral Medium",
+        "version": "1",
+        "deploymentName": "mistral-medium-latest",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools"
+        ],
+        "providerPriority": 6,
+        "priority": 5,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:50:01.323Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "a2ae2a7d-0a5c-4475-824f-7739298f082d"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Magistral Medium",
+        "version": "1",
+        "deploymentName": "magistral-medium-latest",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 2,
+        "priority": 2,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:50:27.701Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "89a1ff40-1be1-472b-a93e-5bd8abe5f437"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Magistral Small",
+        "version": "1",
+        "deploymentName": "magistral-small-latest",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "tools",
+            "reasoning"
+        ],
+        "providerPriority": 7,
+        "priority": 6,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:50:55.594Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "5ad64b79-4f61-49f7-8f13-bddb65373ccc"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Pixtral Large",
+        "version": "1",
+        "deploymentName": "pixtral-large-latest",
+        "classification": "omni",
+        "capabilities": [
+            "vision",
+            "text"
+        ],
+        "providerPriority": 3,
+        "priority": 0,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:51:26.675Z",
+        "updatedAt": "2025-08-22T22:53:05.624Z",
+        "id": "5cfcc569-19f4-4dc6-81d1-1de791363fc6"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Codestral",
+        "version": "1",
+        "deploymentName": "codestral-latest",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "providerPriority": 5,
+        "priority": 4,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:51:51.270Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "f2d3d74d-0eec-4675-a026-4a2bb683219c"
+    },
+    {
+        "provider": "mistral",
+        "type": "mistral",
+        "name": "Mistral Moderation",
+        "version": "1",
+        "deploymentName": "mistral-moderation",
+        "classification": "text",
+        "capabilities": [
+            "text"
+        ],
+        "providerPriority": 4,
+        "priority": 3,
+        "keyName": "mistral",
+        "createdAt": "2025-08-22T22:52:14.765Z",
+        "updatedAt": "2025-08-22T22:53:01.216Z",
+        "id": "7d02dfa6-f06e-4d44-853e-362c1f32e602"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "gemini",
+        "name": "Gemini 2.5 Flash Image Preview",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-2.5-flash-image-preview",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation",
+            "text",
+            "vision"
+        ],
+        "providerPriority": 4,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-09-08T09:50:34.317Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "fc5cab6b-7a28-4e50-9c1b-ff347d261425"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Gemini 2.5 Flash-Lite",
+        "version": "v1beta",
+        "deploymentName": "models/gemini-2.5-flash-lite",
+        "classification": "text",
+        "capabilities": [
+            "text",
+            "vision"
+        ],
+        "providerPriority": 3,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-09-08T09:51:58.619Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "5a69fb38-a039-47fa-b1a4-ad767dad6d64"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Imagen 4",
+        "version": "v1beta",
+        "deploymentName": "imagen-4.0-generate-001",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "providerPriority": 5,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-09-08T09:53:09.309Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "54824a84-7fee-43db-b509-74a30674d43d"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Imagen 4 Ultra",
+        "version": "v1beta",
+        "deploymentName": "imagen-4.0-ultra-generate-001",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "providerPriority": 7,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-09-08T09:53:53.275Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "d96b872c-7969-4f72-90d2-71cebcebed8c"
+    },
+    {
+        "provider": "googlegenai",
+        "type": "googlegenai",
+        "name": "Imagen 4 Fast",
+        "version": "v1beta",
+        "deploymentName": "imagen-4.0-fast-generate-001",
+        "classification": "image-generation",
+        "capabilities": [
+            "image-generation"
+        ],
+        "providerPriority": 6,
+        "priority": 0,
+        "keyName": "googlegenai",
+        "createdAt": "2025-09-08T09:54:34.532Z",
+        "updatedAt": "2025-09-08T09:56:08.890Z",
+        "id": "62c10d7d-ea52-4b1f-8271-ff2894d87c04"
+    }
+]
