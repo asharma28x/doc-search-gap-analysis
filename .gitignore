@@ -1,4 +1,9 @@
 ntt_secrets.py
+temp*/
+vector_store/*
+reports/*
+sec_rules_data/*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
