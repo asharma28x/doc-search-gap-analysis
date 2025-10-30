@@ -4,6 +4,12 @@ vector_store/*
 reports/*
 sec_rules_data/*
 
+# Model files
+models/
+*.bin
+*.safetensors
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,4 +1,21 @@
-ollama
+streamlit
+requests
+pypdf
+reportlab
+numpy
+pandas
+sentence-transformers
+transformers
+torch
+faiss-cpu
+langchain
+typing-extensions
+
+# Notes:
+# - On Windows, faiss-cpu may require installing via conda if no wheel is available for your Python version:
+#     conda install -c conda-forge faiss-cpu
+# - For GPU support use faiss-gpu (requires appropriate CUDA toolkit and compatible PyTorch).
+# - Install torch following https://pytorch.org for the correct wheel (CPU vs CUDA).ollama
 faiss-cpu
 numpy
 pypdf

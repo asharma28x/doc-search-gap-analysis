@@ -11,10 +11,33 @@ from agents import SECMonitoringAgent, RegulationAnalystAgent, InternalPolicyAud
 from sec_rule_downloader import SECRulemakingMonitor
 
 # Configuration
-TEMP_INTERNAL_DOCS_PATH = "temp_internal_docs/"
-TEMP_VECTOR_STORE_PATH = "temp_vector_store/"
-SEC_RULES_PATH = "sec_rules_data/"
-REPORTS_PATH = "reports/"
+
+# Helper: choose a writable directory. Try project-local path first, then fallback to system temp.
+def _choose_writable_dir(preferred_name: str) -> str:
+    from pathlib import Path
+    import tempfile
+
+    # Try project-local directory first
+    try:
+        candidate = Path.cwd() / preferred_name
+        candidate.mkdir(parents=True, exist_ok=True)
+        # verify write privileges by creating and removing a small file
+        test_file = candidate / ".write_test"
+        with open(test_file, "w") as f:
+            f.write("ok")
+        test_file.unlink()
+        return str(candidate)
+    except Exception:
+        # Fallback to system temp directory (user should have write access)
+        fallback = Path(tempfile.gettempdir()) / "doc_search_app" / preferred_name
+        fallback.mkdir(parents=True, exist_ok=True)
+        return str(fallback)
+
+
+TEMP_INTERNAL_DOCS_PATH = _choose_writable_dir("temp_internal_docs")
+TEMP_VECTOR_STORE_PATH = _choose_writable_dir("temp_vector_store")
+SEC_RULES_PATH = _choose_writable_dir("sec_rules_data")
+REPORTS_PATH = _choose_writable_dir("reports")
 
 # Page configuration
 st.set_page_config(
@@ -173,14 +196,15 @@ if analyze_button:
         status_text.text("📥 Step 1/5: Processing internal documents...")
         progress_bar.progress(10)
         
-        # Clean up old temp files
-        if os.path.exists(TEMP_INTERNAL_DOCS_PATH):
-            shutil.rmtree(TEMP_INTERNAL_DOCS_PATH)
-        os.makedirs(TEMP_INTERNAL_DOCS_PATH)
-        
+        # Create per-run temp subdirectories to avoid deleting parent folders (which can fail
+        # on OneDrive or managed locations). We use a timestamp to isolate runs.
+        run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+        RUN_INTERNAL_DIR = os.path.join(TEMP_INTERNAL_DOCS_PATH, run_id)
+        os.makedirs(RUN_INTERNAL_DIR, exist_ok=True)
+
         internal_doc_paths = []
         for uploaded_file in internal_docs:
-            file_path = os.path.join(TEMP_INTERNAL_DOCS_PATH, uploaded_file.name)
+            file_path = os.path.join(RUN_INTERNAL_DIR, uploaded_file.name)
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
             internal_doc_paths.append(file_path)
@@ -193,12 +217,13 @@ if analyze_button:
         
         embedding_model = get_embedding_model()
         
-        # Use temp vector store path
-        original_vector_path = "vector_store/"
+        # Use a run-specific temp vector store path to avoid permission and concurrency issues
         import document_processor
-        document_processor.VECTOR_STORE_PATH = TEMP_VECTOR_STORE_PATH
-        document_processor.INDEX_FILE = os.path.join(TEMP_VECTOR_STORE_PATH, "faiss_index.bin")
-        document_processor.CHUNKS_FILE = os.path.join(TEMP_VECTOR_STORE_PATH, "chunks.pkl")
+        RUN_VECTOR_STORE = os.path.join(TEMP_VECTOR_STORE_PATH, f"vector_store_{run_id}")
+        os.makedirs(RUN_VECTOR_STORE, exist_ok=True)
+        document_processor.VECTOR_STORE_PATH = RUN_VECTOR_STORE
+        document_processor.INDEX_FILE = os.path.join(RUN_VECTOR_STORE, "faiss_index.bin")
+        document_processor.CHUNKS_FILE = os.path.join(RUN_VECTOR_STORE, "chunks.pkl")
         
         create_vector_store(internal_doc_paths, embedding_model)
         index, chunks = load_vector_store()

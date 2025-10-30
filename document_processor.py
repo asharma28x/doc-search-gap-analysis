@@ -5,18 +5,51 @@ from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
 import faiss
 
+# Import model downloader
+from utils.model_downloader import check_and_download_model
+
 # Config of variables
 VECTOR_STORE_PATH = "vector_store"
 INDEX_FILE = os.path.join(VECTOR_STORE_PATH, "faiss_index.bin")
 CHUNKS_FILE = os.path.join(VECTOR_STORE_PATH, "chunks.pkl")
-EMBEDDING_MODEL = "sentence-transformers/static-retrieval-mrl-en-v1"
+
+# Model configuration
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+MODELS_DIR = "./models"
 
 def get_embedding_model():
     """Loads and returns the sentence transformer model."""
     print("Loading embedding model...")
-    model = SentenceTransformer(EMBEDDING_MODEL, device="cpu")
-    print("Embedding model loaded.")
-    return model
+    
+    # Check if model exists locally, download if not
+    model_path = check_and_download_model(
+        model_name=MODEL_NAME,
+        local_dir=MODELS_DIR
+    )
+    
+    print(f"Using model from: {model_path}")
+    
+    try:
+        model = SentenceTransformer(model_path, device="cpu")
+        print("✓ Embedding model loaded successfully.")
+        return model
+    except Exception as e:
+        print(f"✗ Error loading model: {e}")
+        print("\nTrying to load from Hugging Face Hub...")
+        
+        # Last resort: try loading directly from Hugging Face
+        try:
+            # Disable SSL verification as fallback
+            import ssl
+            ssl._create_default_https_context = ssl._create_unverified_context
+            
+            model = SentenceTransformer(MODEL_NAME, device="cpu")
+            print("✓ Model loaded from Hugging Face Hub")
+            return model
+        except Exception as e2:
+            print(f"✗ Failed to load model: {e2}")
+            raise
+
 
 def load_and_chunk_pdfs(pdf_paths):
     """Loads text from PDF files and splits it into chunks."""
@@ -32,6 +65,7 @@ def load_and_chunk_pdfs(pdf_paths):
         except Exception as e:
             print(f"Error reading {path}: {e}")
     return all_chunks
+
 
 def create_vector_store(doc_paths, model):
     """Creates and saves a FAISS vector store from document paths."""
@@ -57,6 +91,7 @@ def create_vector_store(doc_paths, model):
     print(f"Saving text chunks to {CHUNKS_FILE}")
     with open(CHUNKS_FILE, "wb") as f:
         pickle.dump(chunks, f)
+
 
 def load_vector_store():
     """Loads a FAISS index and corresponding text chunks from disk."""
