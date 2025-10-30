@@ -4,6 +4,8 @@
 
 An AI-powered SEC compliance automation system that monitors new regulatory filings, extracts actionable mandates, and performs gap analysis against internal company policies. The system features both a command-line interface and a user-friendly Streamlit web application with intelligent model management and robust error handling.
 
+**NOTE** This is a submission for the NTT Data Agentic AI Campaign.
+
 ## Key Features
 
 - **Automated SEC Monitoring**: Scrapes SEC.gov for latest rulemaking activities and downloads regulation PDFs
@@ -481,4 +483,4 @@ For issues or questions:
 
 ## Contributors
 
-Aditya Sharma, 
+This is a submission for the Agentic AI Campaign with NTT Data. The contributors for this are: Aditya Sharma, Aparna Sajith, Arun Mantripragada, Ben Head, Victoria Foo, Colin Hatt, Ismail Yigit, Bharath Chandran, Nitesh Chilakala, and Vinothkumar Sivabalan
