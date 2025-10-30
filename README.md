@@ -50,7 +50,7 @@ The system uses a 4-agent pipeline:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/asharma28x/doc-search-gap-analysis/
 cd doc-search-gap-analysis
 ```
 
