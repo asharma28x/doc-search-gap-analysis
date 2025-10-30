@@ -74,8 +74,6 @@ pip install -r requirements.txt
 
 Place these files in the project root (provided separately):
 
-**`auth.py`** - Contains authentication function that returns API token
-
 **`ntt_secrets.py`** - Contains credentials:
 - `NTT_ID` - Your NTT AI ID
 - `NTT_SECRET` - Your NTT AI secret key
