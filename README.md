@@ -41,7 +41,7 @@ The system uses a 4-agent pipeline:
 ## Prerequisites
 
 - Python 3.8+
-- NTT AI API credentials (contact your administrator for `auth.py` and `ntt_secrets.py`)
+- NTT AI API credentials (obtained through the NTTh api playground)
 - Internet connection (for initial model download and SEC.gov access)
 - 2GB+ free disk space (for embedding models and vector stores)
 
@@ -179,7 +179,7 @@ doc-search-gap-analysis/
 ├── sec_rule_downloader.py      # SEC website scraper
 ├── llm_service.py              # LLM API wrapper
 ├── LLM.py                      # Custom LangChain LLM class
-├── auth.py                     # Authentication (not in repo)
+├── auth.py                     # Authentication
 ├── ntt_secrets.py              # API credentials (not in repo)
 ├── requirements.txt            # Python dependencies
 │
@@ -439,7 +439,6 @@ sec_rules_data/processed_rules.json
 **Never commit sensitive files:**
 ```bash
 # Add to .gitignore
-auth.py
 ntt_secrets.py
 *.env
 *.key
