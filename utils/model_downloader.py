@@ -10,14 +10,14 @@ from pathlib import Path
 
 
 def check_and_download_model(
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+    model_name: str = "sentence-transformers/static-retrieval-mrl-en-v1",
     local_dir: str = "./models"
 ) -> str:
     """
     Check if model exists locally, download if not.
     
     Args:
-        model_name: Hugging Face model identifier (e.g., "sentence-transformers/all-MiniLM-L6-v2")
+        model_name: Hugging Face model identifier (e.g., "sentence-transformers/static-retrieval-mrl-en-v1")
         local_dir: Directory to store models
         
     Returns:

@@ -1,58 +1,101 @@
-# doc-search-gap-analysis
+# Document Search Gap Analysis Agent
 
-To create a new branch in github, use the command in terminal after opening the project in GitHub CodeSpaces:
+## Introduction
 
-```bash
-git checkout -b <Branch-Name>
-```
-
-where ```<Branch-Name>``` should be the name of the feature you're coding up and adding to the repo. Commit and publish the branch using the VSCode sidebar after.
-
-# Introduction
-
-An AI-powered SEC compliance automation system that monitors new regulatory filings, extracts actionable mandates, and performs gap analysis against internal company policies. The system features both a command-line interface and a user-friendly Streamlit web application.
+An AI-powered SEC compliance automation system that monitors new regulatory filings, extracts actionable mandates, and performs gap analysis against internal company policies. The system features both a command-line interface and a user-friendly Streamlit web application with intelligent model management and robust error handling.
 
 ## Key Features
 
 - **Automated SEC Monitoring**: Scrapes SEC.gov for latest rulemaking activities and downloads regulation PDFs
-- **Intelligent Mandate Extraction**: Uses LLM to identify actionable compliance requirements from regulatory text
+- **Intelligent Mandate Extraction**: Uses LLM to identify actionable compliance requirements from regulatory text with enhanced validation
 - **RAG-based Gap Analysis**: Searches internal policy documents using vector embeddings (FAISS + SentenceTransformers)
 - **Multi-Agent Architecture**: Specialized AI agents for monitoring, analysis, auditing, and reporting
 - **Executive Reporting**: Generates comprehensive compliance reports with risk prioritization and action plans
 - **Web Interface**: Streamlit app for easy document upload and analysis
+- **Smart Model Management**: Automatic model downloading with multiple fallback strategies
+- **Robust Error Handling**: Enhanced LLM response validation and informative error messages
 
 ## Architecture
 
 The system uses a 4-agent pipeline:
 
 1. **SECMonitoringAgent**: Extracts text from PDF documents
-2. **RegulationAnalystAgent**: Identifies and structures regulatory mandates using LLM
+2. **RegulationAnalystAgent**: Identifies and structures regulatory mandates using LLM with validation
 3. **InternalPolicyAuditorAgent**: Performs semantic search against internal policies and conducts gap analysis
 4. **ComplianceReportAgent**: Synthesizes findings into executive-level reports
+
+### Technical Components
+
+**Core Processing:**
+- **Document Processor**: PDF chunking, embedding generation, FAISS vector store management
+- **LLM Service**: Custom NTT AI API integration with configurable token limits
+- **SEC Downloader**: Web scraping and PDF retrieval from SEC.gov
+
+**Model Management:**
+- **Automatic Model Download**: Checks for local models and downloads if needed
+- **Multiple Download Strategies**: Hugging Face CLI, Git clone, Python library fallback
+- **Offline Support**: Uses local models when available to reduce bandwidth and latency
 
 ## Prerequisites
 
 - Python 3.8+
 - NTT AI API credentials (contact your administrator for `auth.py` and `ntt_secrets.py`)
+- Internet connection (for initial model download and SEC.gov access)
+- 2GB+ free disk space (for embedding models and vector stores)
 
 ## Installation
 
-1. Clone the repository and navigate to the project directory
+### 1. Clone the Repository
 
-2. Install required Python packages:
+```bash
+git clone <repository-url>
+cd doc-search-gap-analysis
+```
+
+### 2. Install Required Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up authentication files (provided separately):
-   - `auth.py` - Contains authentication function
-   - `ntt_secrets.py` - Contains NTT_ID credential
+**Required packages include:**
+- `streamlit` - Web interface
+- `pypdf` - PDF processing
+- `beautifulsoup4` - Web scraping
+- `sentence-transformers` - Text embeddings
+- `faiss-cpu` - Vector similarity search
+- `numpy` - Numerical operations
+- `requests` - HTTP requests
+- `langchain` and `langchain-core` - LLM framework
 
-4. Create required directories (auto-created on first run):
+### 3. Set Up Authentication
 
-```bash
-mkdir internal_docs sec_rules_data reports vector_store
+Place these files in the project root (provided separately):
+
+**`auth.py`** - Contains authentication function that returns API token
+
+**`ntt_secrets.py`** - Contains credentials:
+- `NTT_ID` - Your NTT AI ID
+- `NTT_SECRET` - Your NTT AI secret key
+
+⚠️ **Security Note**: Never commit these files to version control!
+
+### 4. Initial Setup
+
+On first run, the system will:
+- Create necessary directories automatically
+- Download the embedding model (`all-MiniLM-L6-v2`) to `./models/`
+- This is a one-time ~100MB download
+
+**Directories created:**
+```
+internal_docs/              # Your company policy PDFs
+sec_rules_data/            # Downloaded SEC regulations
+reports/                   # Generated compliance reports
+vector_store/              # FAISS indices
+models/                    # Embedding models
+temp_internal_docs/        # Streamlit upload staging
+temp_vector_store/         # Temporary vector stores
 ```
 
 ## Usage
@@ -65,13 +108,42 @@ Launch the interactive web interface:
 streamlit run app.py
 ```
 
-Then:
-1. **Upload Internal Documents**: Drag and drop your company's policy PDFs
-2. **Select Regulation Source**:
-   - **Auto-fetch**: Automatically download latest regulations from SEC.gov
-   - **Manual Upload**: Upload specific regulation PDFs
-3. **Run Analysis**: Click "Run Compliance Analysis" button
-4. **Download Report**: View preview and download the generated compliance report
+**Workflow:**
+
+1. **Upload Internal Documents** 
+   - Drag and drop your company's policy PDFs
+   - Supports multiple files (max 200MB per file)
+   - System creates vector embeddings automatically
+
+2. **Select Regulation Source**
+   - **Auto-fetch Mode**: 
+     - Downloads latest regulations from SEC.gov
+     - Use slider to select how many (1-10 regulations)
+     - System tracks already-processed rules to avoid duplicates
+   - **Manual Upload Mode**: 
+     - Upload specific regulation PDFs
+     - Useful for analyzing historical or specific regulations
+
+3. **Run Analysis**
+   - Click "Run Compliance Analysis" button
+   - Progress bar shows real-time status:
+     - Step 1: Processing internal documents
+     - Step 2: Building vector store
+     - Step 3: Obtaining regulations
+     - Step 4: Analyzing and identifying gaps
+     - Step 5: Generating consolidated report
+
+4. **Review Results**
+   - Preview report in the interface
+   - Download full report as text file
+   - Metrics show regulations analyzed and report size
+
+**Features:**
+- ✅ Real-time progress tracking
+- ✅ Input validation with helpful messages
+- ✅ Report preview and download
+- ✅ Error messages with debugging details
+- ✅ Support for concept releases vs. actionable rules
 
 ### Option 2: Command Line Interface
 
@@ -81,11 +153,18 @@ For automated/scheduled runs:
 python main.py
 ```
 
-This will:
-1. Load or create vector store from PDFs in `internal_docs/`
-2. Check for new SEC regulations (downloads to `sec_rules_data/`)
-3. Analyze all regulations in `sec_rules_data/`
-4. Generate consolidated report in `reports/`
+**Process:**
+1. Loads existing vector store or creates from `internal_docs/`
+2. Checks SEC.gov for new regulations
+3. Downloads new PDFs to `sec_rules_data/`
+4. Analyzes all regulations in the folder
+5. Generates consolidated report in `reports/`
+
+**Use cases:**
+- Scheduled cron jobs
+- Batch processing
+- Integration with CI/CD pipelines
+- Automated compliance monitoring
 
 ## Project Structure
 
@@ -101,11 +180,16 @@ doc-search-gap-analysis/
 ├── auth.py                     # Authentication (not in repo)
 ├── ntt_secrets.py              # API credentials (not in repo)
 ├── requirements.txt            # Python dependencies
-├── internal_docs/              # Place your company policy PDFs here
+│
+├── utils/
+│   └── model_downloader.py     # Model download management
+│
+├── models/                     # Downloaded embedding models
+├── internal_docs/              # Company policy PDFs
 ├── sec_rules_data/             # Downloaded SEC regulation PDFs
 ├── vector_store/               # FAISS index and text chunks
-├── temp_internal_docs/         # Temporary storage (Streamlit uploads)
-├── temp_vector_store/          # Temporary vector stores (Streamlit)
+├── temp_internal_docs/         # Temporary storage (Streamlit)
+├── temp_vector_store/          # Temporary vector stores
 └── reports/                    # Generated compliance reports
 ```
 
@@ -113,158 +197,288 @@ doc-search-gap-analysis/
 
 ### Core Application Files
 
-- **`app.py`**: Streamlit web interface with file upload, progress tracking, and report download
-- **`main.py`**: Command-line version that processes all documents in folders
-- **`agents.py`**: Contains the 4 specialized AI agents (Monitoring, Analyst, Auditor, Report)
+**`app.py`** - Streamlit Web Interface
+- File upload handling for internal docs and regulations
+- Auto-fetch integration with SEC downloader
+- Progress tracking and status updates
+- Report preview and download
+- Temporary file management with unique run IDs
+- Writable directory detection for OneDrive/managed systems
+
+**`main.py`** - Command-Line Interface
+- Batch processing of all regulations
+- Vector store management
+- Consolidated report generation
+- Integration with SEC monitoring
+
+**`agents.py`** - AI Agent Implementations
+- `SECMonitoringAgent`: PDF text extraction
+- `RegulationAnalystAgent`: Mandate extraction with validation
+- `InternalPolicyAuditorAgent`: Gap analysis with context search
+- `ComplianceReportAgent`: Executive report generation
+- Enhanced mandate parsing with multiple strategies
+- Concept release detection
 
 ### Infrastructure Files
 
-- **`document_processor.py`**: Handles PDF chunking, embedding generation, and FAISS vector store creation
-- **`sec_rule_downloader.py`**: Scrapes SEC.gov rulemaking page and downloads regulation PDFs
-- **`llm_service.py`**: Simple wrapper for LLM API calls with configurable token limits
-- **`LLM.py`**: LangChain-compatible custom LLM implementation for NTT AI API
+**`document_processor.py`** - Document Processing
+- PDF loading and text chunking
+- FAISS vector store creation and loading
+- Integration with model downloader
+- Configurable embedding model
 
-### Configuration Files
+**`sec_rule_downloader.py`** - SEC.gov Integration
+- Web scraping of rulemaking activity page
+- PDF link extraction from rule detail pages
+- Rule tracking to avoid duplicates (stored in `processed_rules.json`)
+- Metadata preservation (title, date, URL)
 
-- **`auth.py`**: Authentication function (returns API token)
-- **`ntt_secrets.py`**: Contains `NTT_ID` constant for API identification
-- **`requirements.txt`**: Python package dependencies
+**`llm_service.py`** - LLM API Wrapper
+- Simple interface for LLM calls
+- Configurable token limits (default 4000, up to 8000)
+- Model selection (GPT-4o-mini, Gemini 2.5 Flash, GPT-4o)
+
+**`LLM.py`** - LangChain LLM Implementation
+- Custom LLM wrapper for NTT AI API
+- Enhanced response parsing with multiple strategies
+- Error handling and timeout management
+- Support for various response formats
+
+**`utils/model_downloader.py`** - Model Management
+- Checks for local model existence
+- Three download strategies:
+  1. Hugging Face CLI (preferred)
+  2. Git clone (fallback)
+  3. Python library (last resort)
+- Automatic installation of dependencies
+- Graceful fallback to online downloads
 
 ## Configuration
 
 ### LLM Settings
 
-Token limits and model settings can be adjusted in `llm_service.py`:
-
+**Token Limits** (in `llm_service.py`):
 ```python
-def llm_chat(prompt, max_tokens=8000):
-    # Adjust max_tokens as needed (up to 8000)
+def llm_chat(prompt, max_tokens=4000):
+    # Adjust max_tokens (up to 8000 supported)
+```
+
+**Model Selection** (in `llm_service.py`):
+```python
+model_id="a4022a51-2f02-4ba7-8a31-d33c7456b58e"  # Gemini 2.5 Flash (default)
+# model_id="cc5bab32-9ccf-472b-9d76-91fc2ec5b047"  # GPT-4o-mini
+# model_id="6c26a584-a988-4fed-92ea-f6501429fab9"  # GPT-4o
+```
+
+**Character Limits** (in `agents.py`):
+```python
+# RegulationAnalystAgent.run()
+max_length = 100000  # Regulation text truncation
+
+# ComplianceReportAgent.run_consolidated()
+max_findings_length = 150000  # Consolidated findings truncation
 ```
 
 ### Document Processing
 
-Character limits for regulation text can be modified in `agents.py`:
-
+**Embedding Model** (in `document_processor.py`):
 ```python
-# In RegulationAnalystAgent.run()
-max_length = 100000  # Adjust as needed
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+MODELS_DIR = "./models"
+```
+
+**Vector Search** (in `agents.py`):
+```python
+k = 5  # Number of relevant chunks to retrieve per mandate
 ```
 
 ### SEC Monitoring
 
-Number of regulations to fetch in `sec_rule_downloader.py`:
-
+**Number of Regulations** (in `sec_rule_downloader.py`):
 ```python
 def get_latest_rulemakings(self, limit=10):  # Adjust limit
+```
+
+**Rate Limiting** (in `sec_rule_downloader.py`):
+```python
+time.sleep(2)  # Seconds between SEC requests
 ```
 
 ## Output
 
 ### Report Format
 
-The system generates comprehensive text reports containing:
+The system generates comprehensive text reports with:
 
-1. **Executive Summary**: Cross-regulation patterns, compliance posture, critical gaps
-2. **Regulations Analyzed**: Overview of each regulation and mandate count
-3. **Consolidated Findings**: Gaps organized by risk level (Critical/High/Medium/Low)
-4. **Impacted Documents**: List of internal policies requiring updates
-5. **Action Plan**: Phased recommendations with timelines (0-30, 1-3, 3-6 months)
-6. **Appendices**: Detailed mandate-by-mandate analysis for each regulation
+**1. Executive Summary**
+- Cross-regulation patterns and themes
+- Overall compliance posture
+- Critical gaps requiring immediate attention
+- Strategic recommendations and resource implications
+- Timeline and effort estimates
 
-### Sample Report Location
+**2. Regulations Analyzed**
+- Regulation type (Concept Release / Final Rule / Proposed Rule)
+- Key focus areas
+- Number of mandates identified
+- Overall compliance status
 
-Reports are saved to `reports/consolidated_compliance_report_YYYYMMDD_HHMMSS.txt`
+**3. Consolidated Findings by Risk Level**
+- **Critical Risks**: Immediate action required
+- **High Risks**: 30-day timeline
+- **Medium Risks**: 90-day timeline
+- **Low Risks & Compliant Items**: Summary
+
+**4. Impacted Documents**
+- List of internal policies requiring updates
+- Specific sections referenced
+- Evidence from policy text
+
+**5. Recommended Action Plan**
+- **Phase 1 (0-30 days)**: Critical gaps
+- **Phase 2 (1-3 months)**: High-priority items
+- **Phase 3 (3-6 months)**: Medium-priority items
+
+**6. Appendices**
+- Detailed mandate-by-mandate analysis for each regulation
+- Full gap analysis findings
+- Source references and evidence
+
+### Sample Report Structure
+
+```
+================================================================================
+CONSOLIDATED COMPLIANCE GAP ANALYSIS REPORT
+Multi-Regulation Assessment
+================================================================================
+
+Report Date:           January 15, 2025 at 02:30 PM
+Regulations Analyzed:  5
+Analysis ID:           20250115_143000
+Generated By:          AI Compliance Analysis System v1.0
+
+================================================================================
+
+REGULATIONS COVERED IN THIS REPORT:
+--------------------------------------------------------------------------------
+1. Enhanced Disclosure Requirements for Investment Advisers
+   File: sec-rule-34-99123.pdf
+   Date: 2025-01-10
+   URL:  https://www.sec.gov/rules/...
+
+[... Additional regulations ...]
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+[4-6 paragraphs of strategic analysis]
+
+================================================================================
+CONSOLIDATED FINDINGS BY RISK LEVEL
+================================================================================
+
+CRITICAL RISKS (Immediate Action Required)
+--------------------------------------------------------------------------------
+[Specific gaps with high compliance risk]
+
+[... Additional sections ...]
+
+================================================================================
+APPENDIX: DETAILED FINDINGS BY REGULATION
+================================================================================
+
+[Mandate-by-mandate analysis with evidence]
+```
+
+### File Naming
+
+**Reports:**
+```
+reports/consolidated_compliance_report_YYYYMMDD_HHMMSS.txt
+```
+
+**Downloaded Regulations:**
+```
+sec_rules_data/sec-rule-34-99123.pdf
+```
+
+**Processed Rules Tracking:**
+```
+sec_rules_data/processed_rules.json
+```
 
 ## Technical Stack
 
-- **LLM**: Custom NTT AI API (via LangChain wrapper)
-- **Embeddings**: `sentence-transformers/static-retrieval-mrl-en-v1`
+**AI/ML:**
+- **LLM**: NTT AI API (Gemini 2.5 Flash / GPT-4o-mini / GPT-4o)
+- **Embeddings**: `sentence-transformers/all-MiniLM-L6-v2` (384 dimensions)
 - **Vector Store**: FAISS (Facebook AI Similarity Search)
-- **PDF Processing**: pypdf
-- **Web Scraping**: BeautifulSoup4
-- **Web Interface**: Streamlit
-- **Data Processing**: NumPy, Pandas
+- **Framework**: LangChain for LLM orchestration
 
-## Troubleshooting
+**Document Processing:**
+- **PDF Parsing**: pypdf
+- **Text Processing**: NumPy for embeddings
 
-### Empty Mandate Extraction
+**Web:**
+- **Interface**: Streamlit
+- **Scraping**: BeautifulSoup4
+- **HTTP**: Requests library
 
-If mandates aren't being extracted:
-- Check that PDFs contain readable text (not scanned images)
-- Increase `max_tokens` in `llm_service.py` if responses are truncated
-- Verify API credentials in `auth.py` and `ntt_secrets.py`
-- Check console output for LLM API error messages
-
-### Vector Store Issues
-
-If vector store creation fails:
-- Ensure PDFs in `internal_docs/` contain extractable text
-- Check available disk space (FAISS indices can be large)
-- Delete `vector_store/` folder and recreate
-
-### SEC Download Failures
-
-If regulation downloads fail:
-- Check internet connection
-- Verify SEC.gov is accessible (may have rate limiting)
-- Review `sec_rule_downloader.py` User-Agent string
-- Try manual upload mode in Streamlit app
-
-### Performance Issues
-
-For large document sets:
-- Reduce number of regulations analyzed
-- Decrease vector store search parameter `k` (currently 5)
-- Process documents in smaller batches
-- Use shorter regulation PDFs for initial testing
-
-## Development
-
-### Adding New Agents
-
-Create new agent classes in `agents.py` following the pattern:
-
-```python
-class NewAgent:
-    def run(self, input_data):
-        # Agent logic here
-        return output_data
-```
-
-### Customizing Prompts
-
-All LLM prompts are in `agents.py`. Modify the `prompt` variables in:
-- `RegulationAnalystAgent.run()` - Mandate extraction
-- `InternalPolicyAuditorAgent.run()` - Gap analysis
-- `ComplianceReportAgent.run_consolidated()` - Report generation
-
-### Changing Vector Store
-
-To use a different embedding model, update `document_processor.py`:
-
-```python
-EMBEDDING_MODEL = "your-model-name"  # Must be compatible with sentence-transformers
-```
+**Storage:**
+- **Vector Store**: FAISS binary indices + pickled text chunks
+- **Tracking**: JSON files for processed rules
+- **Reports**: Plain text files
 
 ## Security Notes
 
-- **Never commit** `auth.py` or `ntt_secrets.py` to version control
-- Add these files to `.gitignore`
-- API tokens should be rotated periodically
-- Ensure compliance reports don't contain sensitive internal information before sharing
+### Credentials Management
 
-## Contributing
+**Never commit sensitive files:**
+```bash
+# Add to .gitignore
+auth.py
+ntt_secrets.py
+*.env
+*.key
+```
 
-1. Create a feature branch: `git checkout -b feature-name`
-2. Make changes and test thoroughly
-3. Commit with descriptive messages
-4. Push branch and create pull request
-5. Request review from team members
+**Rotate API tokens periodically** - Update `ntt_secrets.py` every 90 days
 
+### Report Handling
+
+**Before sharing reports:**
+1. Review for sensitive internal information
+2. Redact proprietary policy details if needed
+3. Check for personally identifiable information (PII)
+4. Verify compliance with data handling policies
+
+**Access Control:**
+```bash
+# Set restrictive permissions on reports
+chmod 600 reports/*.txt
+```
+
+### API Security Best Practices
+
+1. Use environment variables for production:
+```python
+import os
+NTT_ID = os.getenv('NTT_ID')
+NTT_SECRET = os.getenv('NTT_SECRET')
+```
+
+2. Monitor API usage and set up alerts
+3. Review API logs regularly for anomalies
 
 ## Support
 
 For issues or questions:
-- Check the Troubleshooting section above
-- Review console output for error messages
+- Review the relevant file documentation in the "Key Files Explained" section
+- Check console output for error messages and debugging information
 - Contact your team administrator for API access issues
+- Review the configuration section for customization options
+
+## Contributors
+
+Aditya Sharma, 
